@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connections | Proximo Paso - Your Curated Network of Bilingual Professionals</title>
+  <meta name="description" content="Proximo Paso Connections is a curated network of bilingual professionals who speak your language, understand your journey, and are invested in your success.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    .connections-message {
+      background: var(--white);
+      padding: 80px 0;
+    }
+    .connections-message__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .connections-message blockquote {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      color: var(--primary-dark);
+      line-height: 1.4;
+      border-left: 4px solid var(--accent);
+      padding-left: 24px;
+      margin: 32px 0;
+    }
+    .advocate-vs {
+      padding: 80px 0;
+      background: var(--off-white);
+    }
+    .advocate-vs__intro {
+      max-width: 700px;
+      margin: 0 auto 48px;
+      text-align: center;
+    }
+    .advocate-vs__intro p {
+      color: var(--text-light);
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+    .network-section {
+      background: var(--white);
+      padding: 80px 0;
+    }
+    .network-section__intro {
+      max-width: 700px;
+      margin: 0 auto 16px;
+      text-align: center;
+    }
+    .network-section__intro p {
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+    .vetting-list {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin: 32px 0 48px;
+    }
+    .vetting-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+    .vetting-item .icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--teal-light);
+      color: var(--teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 768px) {
+      .connections-message__grid {
+        grid-template-columns: 1fr;
+      }
+      .connections-message__grid .why-us__image {
+        order: -1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar__contact">
+        <a href="tel:8584803998"><i class="fas fa-phone"></i> 858-480-3998</a>
+        <span><i class="fas fa-map-marker-alt"></i> 380 S Melrose Dr., Ste 101, Vista, CA 92081</span>
+      </div>
+      <div class="top-bar__social">
+        <a href="https://www.facebook.com/867545126433207" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/yourproximopaso/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@yourproximopaso" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.x.com/@yourproximopaso" target="_blank" rel="noopener" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <nav class="navbar">
+      <a href="index.html" class="navbar__logo">
+        <div>Proximo Paso<span>Avanzando Contigo</span></div>
+      </a>
+      <div class="navbar__menu">
+        <a href="index.html" class="navbar__link">Home</a>
+        <a href="services.html" class="navbar__link">Our Services</a>
+        <a href="products.html" class="navbar__link">Products &amp; Resources</a>
+        <a href="connections.html" class="navbar__link active">Connections</a>
+        <a href="https://profitfirst-fxu2wpkc.manus.space/" class="navbar__link" target="_blank">Educational Series</a>
+        <a href="tel:8584809338" class="navbar__phone"><i class="fas fa-phone"></i> 858-480-9338</a>
+        <a href="mailto:info@proximopaso.com" class="btn btn-primary btn-sm navbar__cta">Book Appointment</a>
+      </div>
+      <button class="navbar__toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="connections-hero">
+    <div class="container">
+      <span class="section-label" style="color:var(--accent);">Proximo Paso Connections</span>
+      <h1 class="section-title">You Don't Need Another Attorney.<br>You Need an Advocate.</h1>
+      <p class="section-subtitle">Proximo Paso Connections is a curated network of bilingual professionals who speak your language, understand your journey, and are invested in your success &mdash; not just your case.</p>
+      <a href="#network" class="btn btn-primary btn-lg" style="margin-top:8px;">Browse the Network</a>
+    </div>
+  </section>
+
+  <!-- Message Section -->
+  <section class="connections-message">
+    <div class="container">
+      <div class="connections-message__grid">
+        <div class="slide-left">
+          <span class="section-label">The Bigger Picture</span>
+          <h2 class="section-title">Getting Your Papers Was Step One. Building Your Life Is Everything.</h2>
+          <p style="color:var(--text-light);line-height:1.8;margin-bottom:16px;">
+            You've received your work permit, your green card, or your citizenship. But now what? The real journey begins &mdash; opening a bank account, forming an LLC, buying a home, filing taxes, planning for your family's future.
+          </p>
+          <p style="color:var(--text-light);line-height:1.8;margin-bottom:16px;">
+            These aren't just errands. They are the building blocks of a life in this country. And navigating them alone &mdash; especially in a new system, in a second language &mdash; is where people get stuck.
+          </p>
+          <blockquote>An attorney closes your case. An advocate opens your future.</blockquote>
+        </div>
+        <div class="why-us__image slide-right">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=540&h=400&fit=crop" alt="Professional advocate helping a client">
+          <div class="why-us__image-accent"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Advocate vs Attorney -->
+  <section class="advocate-vs">
+    <div class="container">
+      <div class="advocate-vs__intro fade-up">
+        <span class="section-label">A Different Approach</span>
+        <h2 class="section-title">Advocate vs. Attorney</h2>
+        <p>What makes the Proximo Paso network different from a typical directory or referral list?</p>
+      </div>
+
+      <div class="comparison-table fade-up">
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Advocate</th>
+              <th>Traditional Attorney</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Focus</td>
+              <td>Your whole life</td>
+              <td>Your legal case</td>
+            </tr>
+            <tr>
+              <td>Language</td>
+              <td>Bilingual by default</td>
+              <td>Sometimes available</td>
+            </tr>
+            <tr>
+              <td>Relationship</td>
+              <td>Long-term growth</td>
+              <td>Case-by-case</td>
+            </tr>
+            <tr>
+              <td>Approach</td>
+              <td>Proactive problem prevention</td>
+              <td>Reactive problem solving</td>
+            </tr>
+            <tr>
+              <td>Cultural Understanding</td>
+              <td>Built-in experience</td>
+              <td>Varies widely</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Network -->
+  <section class="network-section" id="network">
+    <div class="container">
+      <div class="network-section__intro fade-up">
+        <span class="section-label">The Network</span>
+        <h2 class="section-title">The Proximo Paso Connections Network</h2>
+        <p>Every professional in our network is vetted for three things:</p>
+      </div>
+
+      <div class="vetting-list fade-up">
+        <div class="vetting-item">
+          <div class="icon"><i class="fas fa-language"></i></div>
+          Bilingual Proficiency
+        </div>
+        <div class="vetting-item">
+          <div class="icon"><i class="fas fa-award"></i></div>
+          Professional Excellence
+        </div>
+        <div class="vetting-item">
+          <div class="icon"><i class="fas fa-heart"></i></div>
+          Genuine Community Commitment
+        </div>
+      </div>
+
+      <div class="network-grid stagger-children">
+        <div class="network-card">
+          <div class="icon"><i class="fas fa-building"></i></div>
+          <h4>Business Formation</h4>
+          <p>LLC, Corp, Sole Prop</p>
+        </div>
+        <div class="network-card">
+          <div class="icon"><i class="fas fa-university"></i></div>
+          <h4>Banks</h4>
+          <p>Business Accounts</p>
+        </div>
+        <div class="network-card">
+          <div class="icon"><i class="fas fa-calculator"></i></div>
+          <h4>CPAs</h4>
+          <p>Accounting &amp; Bookkeeping</p>
+        </div>
+        <div class="network-card">
+          <div class="icon"><i class="fas fa-chart-line"></i></div>
+          <h4>Financial Advisors</h4>
+          <p>Wealth Building</p>
+        </div>
+        <div class="network-card">
+          <div class="icon"><i class="fas fa-file-invoice-dollar"></i></div>
+          <h4>Tax Strategists</h4>
+          <p>Tax Planning</p>
+        </div>
+        <div class="network-card">
+          <div class="icon"><i class="fas fa-house"></i></div>
+          <h4>Real Estate Agents</h4>
+          <p>Property &amp; Homeownership</p>
+        </div>
+        <div class="network-card">
+          <div class="icon"><i class="fas fa-gavel"></i></div>
+          <h4>Tenants' Rights</h4>
+          <p>Legal Protection</p>
+        </div>
+        <div class="network-card">
+          <div class="icon"><i class="fas fa-hand-holding-dollar"></i></div>
+          <h4>Loan Agents</h4>
+          <p>Financing &amp; Lending</p>
+        </div>
+        <div class="network-card">
+          <div class="icon"><i class="fas fa-people-group"></i></div>
+          <h4>Community Orgs</h4>
+          <p>Local Support</p>
+        </div>
+        <div class="network-card">
+          <div class="icon"><i class="fas fa-scroll"></i></div>
+          <h4>Estate Planners</h4>
+          <p>Legacy &amp; Wills</p>
+        </div>
+      </div>
+
+      <div class="text-center fade-up" style="margin-top:48px;">
+        <a href="#" class="btn btn-primary btn-lg" style="opacity:0.7;pointer-events:none;">
+          <i class="fas fa-clock"></i> Coming Soon
+        </a>
+        <p style="color:var(--text-light);margin-top:16px;font-size:0.9rem;">
+          We're building this network with care. Trust-based, not transactional. Stay tuned.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="how-it-works" style="padding:60px 0;">
+    <div class="container text-center fade-up">
+      <h2 class="section-title" style="color:var(--white);">You Are Not Alone on This Journey</h2>
+      <p class="section-subtitle">We walk with you &mdash; Avanzando Contigo.</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+        <a href="mailto:info@proximopaso.com" class="btn btn-primary btn-lg">Get in Touch</a>
+        <a href="tel:8584803998" class="btn btn-outline-white btn-lg"><i class="fas fa-phone"></i> 858-480-3998</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Disclaimer -->
+  <div class="disclaimer-banner">
+    <div class="container">
+      Proximo Paso provides fingerprinting, notary, certified translation, and process/paperwork support. We do not provide legal advice or legal representation. If you need an attorney, we can refer you to a licensed immigration lawyer.
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__logo">Proximo Paso</div>
+          <div class="footer__tagline">Avanzando Contigo</div>
+          <p>From papers to progress. We help newly documented immigrants take their next step with fingerprinting, ITIN to SSN support, and tax help.</p>
+          <div class="footer__social">
+            <a href="https://www.facebook.com/867545126433207" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/yourproximopaso/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@yourproximopaso" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.x.com/@yourproximopaso" target="_blank" rel="noopener" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+          </div>
+        </div>
+        <div class="footer__col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html">FBI Fingerprinting</a></li>
+            <li><a href="services.html">California LiveScan</a></li>
+            <li><a href="services.html">ITIN to SSN</a></li>
+            <li><a href="services.html">Notary Services</a></li>
+            <li><a href="services.html">Translations</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="products.html">Toolkits &amp; Guides</a></li>
+            <li><a href="https://profitfirst-fxu2wpkc.manus.space/" target="_blank">Educational Series</a></li>
+            <li><a href="connections.html">Connections Network</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:8584803998">858-480-3998</a></li>
+            <li><a href="tel:8584809338">858-480-9338</a></li>
+            <li><a href="mailto:info@proximopaso.com">info@proximopaso.com</a></li>
+            <li><a href="https://maps.google.com/?q=380+S+Melrose+Dr+Ste+101+Vista+CA+92081" target="_blank">380 S Melrose Dr., Ste 101<br>Vista, CA 92081</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2025 Proximo Paso, LLC &mdash; All Rights Reserved.</p>
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="cookie-banner">
+    <h4>This website uses cookies.</h4>
+    <p>We use cookies to analyze website traffic and optimize your experience. By accepting, your data will be aggregated with all other user data.</p>
+    <button class="btn btn-primary cookie-accept">Accept</button>
+  </div>
+
+  <button class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
