@@ -49,6 +49,7 @@
         <a href="mailto:info@proximopaso.com" class="btn btn-primary navbar__mobile-cta" style="display:none;width:100%;margin-top:8px;">Book Appointment</a>
       </div>
       <div class="navbar__right">
+        <a href="cart.html" class="navbar__cart" aria-label="Shopping cart"><i class="fas fa-shopping-cart"></i><span class="cart-badge" id="cartBadge">0</span></a>
         <a href="tel:8584809338" class="navbar__phone"><i class="fas fa-phone"></i> 858-480-9338</a>
         <a href="mailto:info@proximopaso.com" class="btn btn-primary btn-sm navbar__cta">Book Appointment</a>
       </div>
@@ -79,10 +80,11 @@
       <div class="products-grid stagger-children">
 
         <!-- Product 1 -->
-        <div class="product-card" data-category="toolkit">
+        <div class="product-card" data-category="toolkit" data-id="itin-ssn-toolkit" data-name="DIY Toolkit &mdash; ITIN to SSN Transition" data-price="19.99">
           <div class="product-card__image">
             <div class="product-card__image-icon"><i class="fas fa-exchange-alt"></i></div>
             <span class="product-card__badge">Popular</span>
+            <button class="quick-view-btn" data-id="itin-ssn-toolkit"><i class="fas fa-eye"></i> Quick View</button>
           </div>
           <div class="product-card__body">
             <span class="product-card__tag">Toolkit</span>
@@ -90,15 +92,16 @@
             <p class="product-card__desc">Step-by-step instructions for updating your ITIN to SSN with the SSA. Fillable PDF and Word templates. Prevents IRS delays and wage mismatches.</p>
             <div class="product-card__footer">
               <span class="product-card__price">$19.99</span>
-              <a href="#" class="btn btn-primary btn-sm">Get It</a>
+              <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="itin-ssn-toolkit" data-name="DIY Toolkit &mdash; ITIN to SSN Transition" data-price="19.99"><i class="fas fa-cart-plus"></i> Add to Cart</button>
             </div>
           </div>
         </div>
 
         <!-- Product 2 -->
-        <div class="product-card" data-category="toolkit">
+        <div class="product-card" data-category="toolkit" data-id="cert-naturalization" data-name="DIY Toolkit &mdash; Certificate of Naturalization" data-price="24.99">
           <div class="product-card__image" style="background:linear-gradient(135deg,#2a7b88,#1a3c5e);">
             <div class="product-card__image-icon"><i class="fas fa-flag-usa"></i></div>
+            <button class="quick-view-btn" data-id="cert-naturalization"><i class="fas fa-eye"></i> Quick View</button>
           </div>
           <div class="product-card__body">
             <span class="product-card__tag">Toolkit</span>
@@ -106,15 +109,16 @@
             <p class="product-card__desc">Form N-565 preparation guide. Smart checklists for lost/stolen, damaged, name changes, and USCIS errors. Fill-in templates and mailing guide.</p>
             <div class="product-card__footer">
               <span class="product-card__price">$24.99</span>
-              <a href="#" class="btn btn-primary btn-sm">Get It</a>
+              <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="cert-naturalization" data-name="DIY Toolkit &mdash; Certificate of Naturalization" data-price="24.99"><i class="fas fa-cart-plus"></i> Add to Cart</button>
             </div>
           </div>
         </div>
 
         <!-- Product 3 -->
-        <div class="product-card" data-category="toolkit">
+        <div class="product-card" data-category="toolkit" data-id="us-citizenship" data-name="DIY Toolkit &mdash; Application for U.S. Citizenship" data-price="24.99">
           <div class="product-card__image" style="background:linear-gradient(135deg,#d4a437,#b8922f);">
             <div class="product-card__image-icon"><i class="fas fa-passport"></i></div>
+            <button class="quick-view-btn" data-id="us-citizenship"><i class="fas fa-eye"></i> Quick View</button>
           </div>
           <div class="product-card__body">
             <span class="product-card__tag">Toolkit</span>
@@ -122,15 +126,16 @@
             <p class="product-card__desc">ZIP file with 4 PDFs: Form N-400 Guide, Section-by-Section Instructions, Evidence Checklist, and Cover Letter Template. For LPRs of 5 years (or 3 years if married to U.S. citizen).</p>
             <div class="product-card__footer">
               <span class="product-card__price">$24.99</span>
-              <a href="#" class="btn btn-primary btn-sm">Get It</a>
+              <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="us-citizenship" data-name="DIY Toolkit &mdash; Application for U.S. Citizenship" data-price="24.99"><i class="fas fa-cart-plus"></i> Add to Cart</button>
             </div>
           </div>
         </div>
 
         <!-- Product 4 -->
-        <div class="product-card" data-category="toolkit">
+        <div class="product-card" data-category="toolkit" data-id="green-card-renewal" data-name="DIY Toolkit &mdash; Renew or Replace Your Green Card" data-price="25.00">
           <div class="product-card__image" style="background:linear-gradient(135deg,#1a3c5e,#2a5f8f);">
             <div class="product-card__image-icon"><i class="fas fa-id-card"></i></div>
+            <button class="quick-view-btn" data-id="green-card-renewal"><i class="fas fa-eye"></i> Quick View</button>
           </div>
           <div class="product-card__body">
             <span class="product-card__tag">Toolkit</span>
@@ -138,15 +143,16 @@
             <p class="product-card__desc">8 documents: I-90 Guide, section-by-section instructions, assembly/mailing checklist, filing tips, cover letter template, sworn statement, and more.</p>
             <div class="product-card__footer">
               <span class="product-card__price">$25.00</span>
-              <a href="#" class="btn btn-primary btn-sm">Get It</a>
+              <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="green-card-renewal" data-name="DIY Toolkit &mdash; Renew or Replace Your Green Card" data-price="25.00"><i class="fas fa-cart-plus"></i> Add to Cart</button>
             </div>
           </div>
         </div>
 
         <!-- Product 5 -->
-        <div class="product-card" data-category="guide">
+        <div class="product-card" data-category="guide" data-id="itin-ssn-guide" data-name="ITIN to SSN Transition Guide (Bilingual)" data-price="17.00">
           <div class="product-card__image" style="background:linear-gradient(135deg,#2a7b88,#1a6b78);">
             <div class="product-card__image-icon"><i class="fas fa-file-lines"></i></div>
+            <button class="quick-view-btn" data-id="itin-ssn-guide"><i class="fas fa-eye"></i> Quick View</button>
           </div>
           <div class="product-card__body">
             <span class="product-card__tag">Guide</span>
@@ -154,15 +160,16 @@
             <p class="product-card__desc">Everything you need to transition from ITIN to SSN, in plain language. English and Spanish.</p>
             <div class="product-card__footer">
               <span class="product-card__price">$17.00</span>
-              <a href="#" class="btn btn-primary btn-sm">Get It</a>
+              <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="itin-ssn-guide" data-name="ITIN to SSN Transition Guide (Bilingual)" data-price="17.00"><i class="fas fa-cart-plus"></i> Add to Cart</button>
             </div>
           </div>
         </div>
 
         <!-- Product 6 -->
-        <div class="product-card" data-category="guide">
+        <div class="product-card" data-category="guide" data-id="first-itin" data-name="Your ITIN, Step by Step &mdash; First-Time ITIN Application Guide" data-price="14.99">
           <div class="product-card__image" style="background:linear-gradient(135deg,#3a4553,#1a3c5e);">
             <div class="product-card__image-icon"><i class="fas fa-book-open"></i></div>
+            <button class="quick-view-btn" data-id="first-itin"><i class="fas fa-eye"></i> Quick View</button>
           </div>
           <div class="product-card__body">
             <span class="product-card__tag">Guide</span>
@@ -170,15 +177,16 @@
             <p class="product-card__desc">Bilingual guide (English/Spanish), 9 pages. Covers ITIN definition, eligibility, Form W-7 instructions, 3 submission methods, common mistakes, and FAQ.</p>
             <div class="product-card__footer">
               <span class="product-card__price">$14.99</span>
-              <a href="#" class="btn btn-primary btn-sm">Get It</a>
+              <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="first-itin" data-name="Your ITIN, Step by Step &mdash; First-Time ITIN Application Guide" data-price="14.99"><i class="fas fa-cart-plus"></i> Add to Cart</button>
             </div>
           </div>
         </div>
 
         <!-- Product 7 -->
-        <div class="product-card" data-category="guide">
+        <div class="product-card" data-category="guide" data-id="work-permit-roadmap" data-name="Work Permit Next Steps Roadmap (Bilingual)" data-price="14.00">
           <div class="product-card__image" style="background:linear-gradient(135deg,#d4a437,#c4942e);">
             <div class="product-card__image-icon"><i class="fas fa-road"></i></div>
+            <button class="quick-view-btn" data-id="work-permit-roadmap"><i class="fas fa-eye"></i> Quick View</button>
           </div>
           <div class="product-card__body">
             <span class="product-card__tag">Guide</span>
@@ -186,15 +194,16 @@
             <p class="product-card__desc">Steps to take in your first 30, 60, and 90 days after receiving your EAD. Los pasos exactos a seguir despu&eacute;s de recibir tu EAD.</p>
             <div class="product-card__footer">
               <span class="product-card__price">$14.00</span>
-              <a href="#" class="btn btn-primary btn-sm">Get It</a>
+              <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="work-permit-roadmap" data-name="Work Permit Next Steps Roadmap (Bilingual)" data-price="14.00"><i class="fas fa-cart-plus"></i> Add to Cart</button>
             </div>
           </div>
         </div>
 
         <!-- Product 8 -->
-        <div class="product-card" data-category="guide">
+        <div class="product-card" data-category="guide" data-id="livescan-prep" data-name="Live Scan Fingerprinting Prep Guide (Bilingual)" data-price="12.00">
           <div class="product-card__image" style="background:linear-gradient(135deg,#1a3c5e,#2a7b88);">
             <div class="product-card__image-icon"><i class="fas fa-fingerprint"></i></div>
+            <button class="quick-view-btn" data-id="livescan-prep"><i class="fas fa-eye"></i> Quick View</button>
           </div>
           <div class="product-card__body">
             <span class="product-card__tag">Guide</span>
@@ -202,15 +211,16 @@
             <p class="product-card__desc">What to bring, what to expect, and how to get the best results for your first-time Live Scan appointment.</p>
             <div class="product-card__footer">
               <span class="product-card__price">$12.00</span>
-              <a href="#" class="btn btn-primary btn-sm">Get It</a>
+              <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="livescan-prep" data-name="Live Scan Fingerprinting Prep Guide (Bilingual)" data-price="12.00"><i class="fas fa-cart-plus"></i> Add to Cart</button>
             </div>
           </div>
         </div>
 
         <!-- Product 9 -->
-        <div class="product-card" data-category="guide">
+        <div class="product-card" data-category="guide" data-id="doc-organizer" data-name="Immigrant Document Organizer (Fillable PDF, Bilingual)" data-price="19.00">
           <div class="product-card__image" style="background:linear-gradient(135deg,#2a5f8f,#1a3c5e);">
             <div class="product-card__image-icon"><i class="fas fa-folder-open"></i></div>
+            <button class="quick-view-btn" data-id="doc-organizer"><i class="fas fa-eye"></i> Quick View</button>
           </div>
           <div class="product-card__body">
             <span class="product-card__tag">Guide</span>
@@ -218,15 +228,16 @@
             <p class="product-card__desc">Fillable PDF to track immigration, identity, and tax documents. Fields for expiration dates, document numbers, and storage locations.</p>
             <div class="product-card__footer">
               <span class="product-card__price">$19.00</span>
-              <a href="#" class="btn btn-primary btn-sm">Get It</a>
+              <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="doc-organizer" data-name="Immigrant Document Organizer (Fillable PDF, Bilingual)" data-price="19.00"><i class="fas fa-cart-plus"></i> Add to Cart</button>
             </div>
           </div>
         </div>
 
         <!-- Product 10 -->
-        <div class="product-card" data-category="guide">
+        <div class="product-card" data-category="guide" data-id="citizenship-interview" data-name="US Citizenship Interview Prep Checklist (Bilingual)" data-price="12.00">
           <div class="product-card__image" style="background:linear-gradient(135deg,#0f2640,#2a7b88);">
             <div class="product-card__image-icon"><i class="fas fa-clipboard-check"></i></div>
+            <button class="quick-view-btn" data-id="citizenship-interview"><i class="fas fa-eye"></i> Quick View</button>
           </div>
           <div class="product-card__body">
             <span class="product-card__tag">Guide</span>
@@ -234,7 +245,7 @@
             <p class="product-card__desc">Covers required documents, civics test, English test, and common mistakes to avoid.</p>
             <div class="product-card__footer">
               <span class="product-card__price">$12.00</span>
-              <a href="#" class="btn btn-primary btn-sm">Get It</a>
+              <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="citizenship-interview" data-name="US Citizenship Interview Prep Checklist (Bilingual)" data-price="12.00"><i class="fas fa-cart-plus"></i> Add to Cart</button>
             </div>
           </div>
         </div>
@@ -242,6 +253,32 @@
       </div>
     </div>
   </section>
+
+  <!-- Quick View Modal -->
+  <div class="quick-view-modal" id="quickViewModal">
+    <div class="quick-view-modal__overlay"></div>
+    <div class="quick-view-modal__content">
+      <button class="quick-view-modal__close"><i class="fas fa-times"></i></button>
+      <div class="quick-view-modal__icon" id="qvIcon"></div>
+      <h2 class="quick-view-modal__title" id="qvTitle"></h2>
+      <p class="quick-view-modal__desc" id="qvDesc"></p>
+      <div class="quick-view-modal__price" id="qvPrice"></div>
+      <div class="quick-view-modal__qty">
+        <label>Quantity:</label>
+        <button class="qty-btn qty-minus"><i class="fas fa-minus"></i></button>
+        <input type="number" class="qty-input" id="qvQty" value="1" min="1" max="99">
+        <button class="qty-btn qty-plus"><i class="fas fa-plus"></i></button>
+      </div>
+      <button class="btn btn-primary quick-view-modal__add" id="qvAddToCart"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+    </div>
+  </div>
+
+  <!-- Cart Added Toast -->
+  <div class="cart-toast" id="cartToast">
+    <i class="fas fa-check-circle"></i>
+    <span>Added to cart!</span>
+    <a href="cart.html">View Cart</a>
+  </div>
 
   <!-- Location / Map -->
   <section class="location-section">

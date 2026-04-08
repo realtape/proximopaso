@@ -273,4 +273,300 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ============ SHOPPING CART SYSTEM ============
+  const Cart = {
+    KEY: 'pp_cart',
+
+    getItems() {
+      try {
+        return JSON.parse(localStorage.getItem(this.KEY)) || [];
+      } catch { return []; }
+    },
+
+    save(items) {
+      localStorage.setItem(this.KEY, JSON.stringify(items));
+      this.updateBadge();
+    },
+
+    addItem(id, name, price, qty = 1) {
+      const items = this.getItems();
+      const existing = items.find(i => i.id === id);
+      if (existing) {
+        existing.qty += qty;
+      } else {
+        items.push({ id, name, price: parseFloat(price), qty });
+      }
+      this.save(items);
+    },
+
+    removeItem(id) {
+      const items = this.getItems().filter(i => i.id !== id);
+      this.save(items);
+    },
+
+    updateQty(id, qty) {
+      const items = this.getItems();
+      const item = items.find(i => i.id === id);
+      if (item) {
+        item.qty = Math.max(1, parseInt(qty) || 1);
+        this.save(items);
+      }
+    },
+
+    getTotal() {
+      return this.getItems().reduce((sum, i) => sum + i.price * i.qty, 0);
+    },
+
+    getCount() {
+      return this.getItems().reduce((sum, i) => sum + i.qty, 0);
+    },
+
+    updateBadge() {
+      const badges = document.querySelectorAll('.cart-badge');
+      const count = this.getCount();
+      badges.forEach(badge => {
+        badge.textContent = count;
+        badge.classList.toggle('empty', count === 0);
+      });
+    }
+  };
+
+  // Init badge on every page
+  Cart.updateBadge();
+
+  // Add mobile cart icon (visible when navbar__right is hidden)
+  const navbarEl = document.querySelector('.navbar');
+  const toggleBtn = document.querySelector('.navbar__toggle');
+  if (navbarEl && toggleBtn) {
+    const mobileCart = document.createElement('a');
+    mobileCart.href = 'cart.html';
+    mobileCart.className = 'navbar__cart mobile-cart';
+    mobileCart.setAttribute('aria-label', 'Shopping cart');
+    mobileCart.innerHTML = '<i class="fas fa-shopping-cart"></i><span class="cart-badge">0</span>';
+    navbarEl.insertBefore(mobileCart, toggleBtn);
+    Cart.updateBadge();
+  }
+
+  // ============ ADD TO CART BUTTONS ============
+  document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const { id, name, price } = btn.dataset;
+      Cart.addItem(id, name, price);
+
+      // Animate button
+      const origHTML = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-check"></i> Added!';
+      btn.classList.add('added');
+      setTimeout(() => {
+        btn.innerHTML = origHTML;
+        btn.classList.remove('added');
+      }, 1500);
+
+      // Bounce badge
+      const badge = document.querySelector('.cart-badge');
+      if (badge) {
+        badge.classList.remove('bounce');
+        void badge.offsetWidth;
+        badge.classList.add('bounce');
+      }
+
+      // Show toast
+      showCartToast();
+    });
+  });
+
+  // ============ CART TOAST ============
+  function showCartToast() {
+    const toast = document.getElementById('cartToast');
+    if (!toast) return;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3000);
+  }
+
+  // ============ QUICK VIEW MODAL ============
+  const productData = {
+    'itin-ssn-toolkit': { icon: 'fas fa-exchange-alt', title: 'DIY Toolkit \u2014 ITIN to SSN Transition', desc: 'Step-by-step instructions for updating your ITIN to SSN with the SSA. Fillable PDF and Word templates. Prevents IRS delays and wage mismatches.', price: 19.99 },
+    'cert-naturalization': { icon: 'fas fa-flag-usa', title: 'DIY Toolkit \u2014 Replace or Correct Certificate of Naturalization/Citizenship', desc: 'Form N-565 preparation guide. Smart checklists for lost/stolen, damaged, name changes, and USCIS errors. Fill-in templates and mailing guide.', price: 24.99 },
+    'us-citizenship': { icon: 'fas fa-passport', title: 'DIY Toolkit \u2014 Application for U.S. Citizenship', desc: 'ZIP file with 4 PDFs: Form N-400 Guide, Section-by-Section Instructions, Evidence Checklist, and Cover Letter Template.', price: 24.99 },
+    'green-card-renewal': { icon: 'fas fa-id-card', title: 'DIY Toolkit \u2014 Renew or Replace Your Green Card', desc: '8 documents: I-90 Guide, section-by-section instructions, assembly/mailing checklist, filing tips, cover letter template, sworn statement, and more.', price: 25.00 },
+    'itin-ssn-guide': { icon: 'fas fa-file-lines', title: 'ITIN to SSN Transition Guide (Bilingual)', desc: 'Everything you need to transition from ITIN to SSN, in plain language. English and Spanish.', price: 17.00 },
+    'first-itin': { icon: 'fas fa-book-open', title: 'Your ITIN, Step by Step \u2014 First-Time ITIN Application Guide', desc: 'Bilingual guide (English/Spanish), 9 pages. Covers ITIN definition, eligibility, Form W-7 instructions, 3 submission methods, common mistakes, and FAQ.', price: 14.99 },
+    'work-permit-roadmap': { icon: 'fas fa-road', title: 'Work Permit Next Steps Roadmap (Bilingual)', desc: 'Steps to take in your first 30, 60, and 90 days after receiving your EAD.', price: 14.00 },
+    'livescan-prep': { icon: 'fas fa-fingerprint', title: 'Live Scan Fingerprinting Prep Guide (Bilingual)', desc: 'What to bring, what to expect, and how to get the best results for your first-time Live Scan appointment.', price: 12.00 },
+    'doc-organizer': { icon: 'fas fa-folder-open', title: 'Immigrant Document Organizer (Fillable PDF, Bilingual)', desc: 'Fillable PDF to track immigration, identity, and tax documents. Fields for expiration dates, document numbers, and storage locations.', price: 19.00 },
+    'citizenship-interview': { icon: 'fas fa-clipboard-check', title: 'US Citizenship Interview Prep Checklist (Bilingual)', desc: 'Covers required documents, civics test, English test, and common mistakes to avoid.', price: 12.00 }
+  };
+
+  const qvModal = document.getElementById('quickViewModal');
+  let qvCurrentId = null;
+
+  document.querySelectorAll('.quick-view-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const id = btn.dataset.id;
+      const data = productData[id];
+      if (!data || !qvModal) return;
+
+      qvCurrentId = id;
+      document.getElementById('qvIcon').innerHTML = `<i class="${data.icon}"></i>`;
+      document.getElementById('qvTitle').textContent = data.title;
+      document.getElementById('qvDesc').textContent = data.desc;
+      document.getElementById('qvPrice').textContent = '$' + data.price.toFixed(2);
+      document.getElementById('qvQty').value = 1;
+      qvModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  // Close modal
+  if (qvModal) {
+    qvModal.querySelector('.quick-view-modal__close').addEventListener('click', closeQV);
+    qvModal.querySelector('.quick-view-modal__overlay').addEventListener('click', closeQV);
+  }
+  function closeQV() {
+    if (!qvModal) return;
+    qvModal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Qty +/- in modal
+  const qvQtyInput = document.getElementById('qvQty');
+  if (qvModal) {
+    qvModal.querySelector('.qty-minus')?.addEventListener('click', () => {
+      qvQtyInput.value = Math.max(1, parseInt(qvQtyInput.value) - 1);
+    });
+    qvModal.querySelector('.qty-plus')?.addEventListener('click', () => {
+      qvQtyInput.value = parseInt(qvQtyInput.value) + 1;
+    });
+  }
+
+  // Add to cart from modal
+  const qvAddBtn = document.getElementById('qvAddToCart');
+  if (qvAddBtn) {
+    qvAddBtn.addEventListener('click', () => {
+      const data = productData[qvCurrentId];
+      if (!data) return;
+      const qty = parseInt(qvQtyInput.value) || 1;
+      Cart.addItem(qvCurrentId, data.title, data.price, qty);
+
+      // Bounce badge
+      const badge = document.querySelector('.cart-badge');
+      if (badge) {
+        badge.classList.remove('bounce');
+        void badge.offsetWidth;
+        badge.classList.add('bounce');
+      }
+
+      closeQV();
+      showCartToast();
+    });
+  }
+
+  // ============ CART PAGE RENDERING ============
+  const cartEmpty = document.getElementById('cartEmpty');
+  const cartContent = document.getElementById('cartContent');
+  const cartTableBody = document.getElementById('cartTableBody');
+  const cartSubtotal = document.getElementById('cartSubtotal');
+
+  function renderCartPage() {
+    if (!cartTableBody) return; // Not on cart page
+
+    const items = Cart.getItems();
+
+    if (items.length === 0) {
+      cartEmpty.style.display = 'block';
+      cartContent.style.display = 'none';
+      return;
+    }
+
+    cartEmpty.style.display = 'none';
+    cartContent.style.display = 'block';
+
+    const iconMap = {
+      'itin-ssn-toolkit': 'fas fa-exchange-alt',
+      'cert-naturalization': 'fas fa-flag-usa',
+      'us-citizenship': 'fas fa-passport',
+      'green-card-renewal': 'fas fa-id-card',
+      'itin-ssn-guide': 'fas fa-file-lines',
+      'first-itin': 'fas fa-book-open',
+      'work-permit-roadmap': 'fas fa-road',
+      'livescan-prep': 'fas fa-fingerprint',
+      'doc-organizer': 'fas fa-folder-open',
+      'citizenship-interview': 'fas fa-clipboard-check'
+    };
+
+    cartTableBody.innerHTML = items.map(item => `
+      <tr data-cart-id="${item.id}">
+        <td>
+          <div class="cart-td-product">
+            <div class="cart-item-icon"><i class="${iconMap[item.id] || 'fas fa-box'}"></i></div>
+            <span class="cart-item-name">${item.name}</span>
+          </div>
+        </td>
+        <td class="cart-td-price">$${item.price.toFixed(2)}</td>
+        <td class="cart-td-qty">
+          <div class="cart-qty-wrap">
+            <button class="qty-btn cart-qty-minus" data-id="${item.id}"><i class="fas fa-minus"></i></button>
+            <input type="number" class="qty-input cart-qty-input" data-id="${item.id}" value="${item.qty}" min="1" max="99">
+            <button class="qty-btn cart-qty-plus" data-id="${item.id}"><i class="fas fa-plus"></i></button>
+          </div>
+        </td>
+        <td class="cart-td-total">$${(item.price * item.qty).toFixed(2)}</td>
+        <td class="cart-td-remove">
+          <button class="cart-remove-btn" data-id="${item.id}" title="Remove">&times;</button>
+        </td>
+      </tr>
+    `).join('');
+
+    cartSubtotal.textContent = '$' + Cart.getTotal().toFixed(2);
+
+    // Bind events
+    cartTableBody.querySelectorAll('.cart-remove-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        Cart.removeItem(btn.dataset.id);
+        renderCartPage();
+      });
+    });
+
+    cartTableBody.querySelectorAll('.cart-qty-minus').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const input = cartTableBody.querySelector(`.cart-qty-input[data-id="${btn.dataset.id}"]`);
+        const newVal = Math.max(1, parseInt(input.value) - 1);
+        input.value = newVal;
+        Cart.updateQty(btn.dataset.id, newVal);
+        renderCartPage();
+      });
+    });
+
+    cartTableBody.querySelectorAll('.cart-qty-plus').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const input = cartTableBody.querySelector(`.cart-qty-input[data-id="${btn.dataset.id}"]`);
+        const newVal = parseInt(input.value) + 1;
+        input.value = newVal;
+        Cart.updateQty(btn.dataset.id, newVal);
+        renderCartPage();
+      });
+    });
+
+    cartTableBody.querySelectorAll('.cart-qty-input').forEach(input => {
+      input.addEventListener('change', () => {
+        const val = Math.max(1, parseInt(input.value) || 1);
+        input.value = val;
+        Cart.updateQty(input.dataset.id, val);
+        renderCartPage();
+      });
+    });
+  }
+
+  renderCartPage();
+
+  // Checkout button
+  const checkoutBtn = document.getElementById('checkoutBtn');
+  if (checkoutBtn) {
+    checkoutBtn.addEventListener('click', () => {
+      alert('Thank you for your interest! Checkout integration coming soon. Please contact us at info@proximopaso.com to complete your purchase.');
+    });
+  }
+
 });

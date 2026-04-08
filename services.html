@@ -49,6 +49,7 @@
         <a href="mailto:info@proximopaso.com" class="btn btn-primary navbar__mobile-cta" style="display:none;width:100%;margin-top:8px;">Book Appointment</a>
       </div>
       <div class="navbar__right">
+        <a href="cart.html" class="navbar__cart" aria-label="Shopping cart"><i class="fas fa-shopping-cart"></i><span class="cart-badge" id="cartBadge">0</span></a>
         <a href="tel:8584809338" class="navbar__phone"><i class="fas fa-phone"></i> 858-480-9338</a>
         <a href="mailto:info@proximopaso.com" class="btn btn-primary btn-sm navbar__cta">Book Appointment</a>
       </div>
@@ -66,26 +67,26 @@
     </div>
   </section>
 
-  <!-- All Services -->
+  <!-- All 10 Services -->
   <section class="services">
     <div class="container">
       <div class="services-grid stagger-children">
 
-        <!-- FBI Fingerprinting -->
+        <!-- 1. FBI Fingerprinting -->
         <div class="service-card">
           <div class="service-card__icon service-card__icon--blue"><i class="fas fa-fingerprint"></i></div>
           <h3 class="service-card__title">FBI Fingerprinting (Ink Cards)</h3>
-          <p class="service-card__price">$50 per person</p>
+          <p class="service-card__price">$50 per Person</p>
           <p class="service-card__desc">Professional ink-rolled prints on FBI FD-258 cards, captured with precision to avoid smudges or rejections.</p>
           <ul class="service-card__features">
-            <li>FD-258 cards included</li>
-            <li>Technician certification</li>
-            <li>Quality check</li>
+            <li>FD-258 fingerprint cards</li>
+            <li>Technician certification/signature</li>
+            <li>Quality check to avoid rejections</li>
             <li>Same-day completion</li>
           </ul>
         </div>
 
-        <!-- California LiveScan -->
+        <!-- 2. California LiveScan -->
         <div class="service-card">
           <div class="service-card__icon service-card__icon--teal"><i class="fas fa-desktop"></i></div>
           <h3 class="service-card__title">California LiveScan</h3>
@@ -94,11 +95,12 @@
           <ul class="service-card__features">
             <li>Fast electronic capture</li>
             <li>Same-day submission</li>
-            <li>Upfront fee explanation</li>
+            <li>Fees explained up front</li>
           </ul>
+          <p style="font-size:0.78rem;color:var(--mid-grey);margin-top:8px;font-style:italic;">Government fees vary by application and are collected at time of service.</p>
         </div>
 
-        <!-- Notary -->
+        <!-- 3. Notary (In-Office) -->
         <div class="service-card">
           <div class="service-card__icon service-card__icon--gold"><i class="fas fa-stamp"></i></div>
           <h3 class="service-card__title">Notary (In-Office)</h3>
@@ -111,25 +113,26 @@
           </ul>
         </div>
 
-        <!-- Mobile Notary -->
+        <!-- 4. Mobile Notary -->
         <div class="service-card">
           <div class="service-card__icon service-card__icon--blue"><i class="fas fa-car"></i></div>
           <h3 class="service-card__title">Mobile Notary <span class="badge-coming-soon">Coming Soon</span></h3>
           <p class="service-card__price">$15 per signature + travel fee</p>
           <p class="service-card__desc">We come to you in North County / San Diego when you can't come to us.</p>
           <ul class="service-card__features">
-            <li>Home, office, hospital, or other locations</li>
+            <li>Home, office, hospital, or other location</li>
             <li>Flexible scheduling</li>
             <li>Evening/urgent options</li>
-            <li>Travel fee depends on distance &mdash; confirmed before booking</li>
+            <li>Simple travel quote up front</li>
           </ul>
+          <p style="font-size:0.78rem;color:var(--mid-grey);margin-top:8px;font-style:italic;">Travel fee depends on distance/time &mdash; we'll confirm before booking.</p>
         </div>
 
-        <!-- Certified Translation -->
+        <!-- 5. Certified Translation -->
         <div class="service-card">
           <div class="service-card__icon service-card__icon--teal"><i class="fas fa-language"></i></div>
-          <h3 class="service-card__title">Certified Translation</h3>
-          <p class="service-card__price">$29 per page &bull; Rush (24hr): +$15/page</p>
+          <h3 class="service-card__title">Certified Translation (USCIS-Ready)</h3>
+          <p class="service-card__price">$29 per page</p>
           <p class="service-card__desc">Accurate, certified translations with a signed certificate for official filings.</p>
           <ul class="service-card__features">
             <li>USCIS-ready certification</li>
@@ -137,11 +140,40 @@
             <li>Fast turnaround</li>
             <li>Confidential handling</li>
           </ul>
+          <p style="font-size:0.78rem;color:var(--mid-grey);margin-top:8px;font-style:italic;">Rush (24-hour) available: +$15/page</p>
         </div>
 
-        <!-- ITIN to SSN -->
+        <!-- 6. DIY Packet Prep - Basic -->
         <div class="service-card">
-          <div class="service-card__icon service-card__icon--gold"><i class="fas fa-exchange-alt"></i></div>
+          <div class="service-card__icon service-card__icon--gold"><i class="fas fa-folder-open"></i></div>
+          <h3 class="service-card__title">DIY Packet Prep &mdash; Basic</h3>
+          <p class="service-card__price">$299</p>
+          <p class="service-card__desc">We organize your documents and forms so your packet is complete and easy to file.</p>
+          <ul class="service-card__features">
+            <li>Intake + document checklist</li>
+            <li>Form organization + assembly</li>
+            <li>Packet formatting + file labeling</li>
+            <li>Final readiness review (non-legal)</li>
+          </ul>
+        </div>
+
+        <!-- 7. DIY Packet Prep - Premium -->
+        <div class="service-card">
+          <div class="service-card__icon service-card__icon--blue"><i class="fas fa-folder-tree"></i></div>
+          <h3 class="service-card__title">DIY Packet Prep &mdash; Premium</h3>
+          <p class="service-card__price">$499</p>
+          <p class="service-card__desc">Everything in Basic, plus dedicated follow-up and a fully tabbed, send-ready packet.</p>
+          <ul class="service-card__features">
+            <li>Everything in Basic</li>
+            <li>Two follow-up sessions</li>
+            <li>Tabbed/sectioned packet setup</li>
+            <li>Final send-ready walkthrough</li>
+          </ul>
+        </div>
+
+        <!-- 8. ITIN to SSN Transition -->
+        <div class="service-card">
+          <div class="service-card__icon service-card__icon--teal"><i class="fas fa-exchange-alt"></i></div>
           <h3 class="service-card__title">ITIN to SSN Transition (Full Service)</h3>
           <p class="service-card__price">$149</p>
           <p class="service-card__desc">We update everything for you &mdash; quickly, correctly, and with zero stress.</p>
@@ -154,51 +186,35 @@
           </ul>
         </div>
 
-        <!-- DIY Packet Prep - Basic -->
+        <!-- 9. Passport Photos -->
         <div class="service-card">
-          <div class="service-card__icon service-card__icon--blue"><i class="fas fa-folder-open"></i></div>
-          <h3 class="service-card__title">DIY Packet Prep &mdash; Basic</h3>
-          <p class="service-card__price">$299</p>
-          <p class="service-card__desc">Let us organize your immigration packet so it's ready for submission.</p>
+          <div class="service-card__icon service-card__icon--gold"><i class="fas fa-camera"></i></div>
+          <h3 class="service-card__title">Passport Photos</h3>
+          <p class="service-card__price">$18</p>
+          <p class="service-card__desc">Compliant passport photos taken in-office, ready for your application on the spot.</p>
           <ul class="service-card__features">
-            <li>Intake + document checklist</li>
-            <li>Form organization + assembly</li>
-            <li>Packet formatting + file labeling</li>
-            <li>Final readiness review (non-legal)</li>
+            <li>U.S. passport photo specifications</li>
+            <li>Printed on-site</li>
+            <li>Same-day service</li>
           </ul>
         </div>
 
-        <!-- DIY Packet Prep - Premium -->
+        <!-- 10. Extra FBI Card Set -->
         <div class="service-card">
-          <div class="service-card__icon service-card__icon--teal"><i class="fas fa-folder-tree"></i></div>
-          <h3 class="service-card__title">DIY Packet Prep &mdash; Premium</h3>
-          <p class="service-card__price">$499</p>
-          <p class="service-card__desc">Everything in Basic, plus dedicated follow-up and a fully tabbed, send-ready packet.</p>
+          <div class="service-card__icon service-card__icon--blue"><i class="fas fa-id-card"></i></div>
+          <h3 class="service-card__title">Extra FBI Card Set</h3>
+          <p class="service-card__price">$10</p>
+          <p class="service-card__desc">Additional set of FBI FD-258 fingerprint cards when you need copies for multiple agencies.</p>
           <ul class="service-card__features">
-            <li>Everything in Basic</li>
-            <li>Two follow-up sessions</li>
-            <li>Tabbed/sectioned packet setup</li>
-            <li>Final send-ready walkthrough</li>
+            <li>Additional FD-258 card set</li>
+            <li>Same session as original prints</li>
+            <li>Quality checked</li>
           </ul>
         </div>
 
       </div>
     </div>
   </section>
-
-  <!-- Add-ons -->
-  <div class="addons">
-    <div class="container">
-      <div class="addon-item">
-        <i class="fas fa-camera"></i>
-        <span>Passport Photos &mdash; <span class="price">$18</span></span>
-      </div>
-      <div class="addon-item">
-        <i class="fas fa-id-card"></i>
-        <span>Extra FBI Card Set &mdash; <span class="price">$10</span></span>
-      </div>
-    </div>
-  </div>
 
   <!-- How It Works -->
   <section class="how-it-works">
